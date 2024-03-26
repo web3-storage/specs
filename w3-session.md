@@ -12,7 +12,7 @@
 
 # Abstract
 
-Within the w3 family of protocols, users have the ability to manage access across namespaces through delegated [UCAN] capabilities using an [account]. However, this process can be daunting for an average user due to the use of unfamiliar user flows. To address this, we propose a complementary solution that can utilize a widely used email authorization flow.
+Within the w3 family of protocols, users have the ability to manage access across namespaces through delegated [UCAN] capabilities using an [w3account]. However, this process can be daunting for an average user due to the use of unfamiliar user flows. To address this, we propose a complementary solution that can utilize a widely used email authorization flow.
 
 ## Language
 
@@ -20,9 +20,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 # Introduction
 
-An abstraction of an [account] provides a convenient method for sharing capabilities without the need to prearrange key exchange. While delegation to an [account] is represented with a standard [UCAN], delegation from an [account] requires the use of [DKIM signature]. However, generating such signatures requires users to send an email with a special subject line, which may not work well for many users.
+An abstraction of an [w3account] provides a convenient method for sharing capabilities without the need to prearrange key exchange. While delegation to a [w3account] is represented with a standard [UCAN], delegation from a [w3account] requires the use of [DKIM signature]. However, generating such signatures requires users to send an email with a special subject line, which may not work well for many users.
 
-To address this, we propose an alternative method for delegating capabilities from the [account] that uses a well-known email-based authorization flow that can be used alongside or instead of [DKIM signature]. In this document, we propose a protocol through which a user [agent] _(identified by a [`did:key`] identifier)_ can request a set of desired capabilities from a memorable [`did:mailto`] identifier through an intermediary that facilitates out-of-band user authorization. We also specify how the special `ucan/attest` capability can be utilized by supporting agents to establish authorization session.
+To address this, we propose an alternative method (using an [Authorization Session Signature]) for delegating capabilities from the [account] that uses a well-known email-based authorization flow that can be used alongside or instead of [DKIM signature]. In this document, we propose a protocol through which a user [agent] _(identified by a [`did:key`] identifier)_ can request a set of desired capabilities from a memorable [`did:mailto`] identifier through an intermediary that facilitates out-of-band user authorization. We also specify how the special `ucan/attest` capability can be utilized by supporting agents to establish authorization session.
 
 > ℹ️ Note that while this specification focuses on [`did:mailto`] identifiers, this approach is valid and can be extended to various other identifiers.
 
@@ -332,6 +332,7 @@ Authorization sessions only apply to UCANs that have a [proof] linking to them. 
 [superuser]:https://en.wikipedia.org/wiki/Superuser
 [DAG-JSON]:https://ipld.io/specs/codecs/dag-json/spec/
 
+[w3account]:./w3-account.md
 [Protocol Labs]:https://protocol.ai/
 [Irakli Gozalishvili]:https://github.com/Gozala
 [DKIM Signature]:./w3-account.md#domainkeys-identified-mail-dkim-signature
