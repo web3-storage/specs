@@ -177,12 +177,12 @@ system tracks, e.g. the spaces the content identified by a given CID has been up
 
 #### returns
 
-The `uploads` property will be a list of spaces the given root CID's content has been uploaded to, along
+The `spaces` property will be a list of spaces the given root CID's content has been uploaded to, along
 with the date it was uploaded.
 
 ```typescript
 {
-  uploads: Array<{space: SpaceDID, insertedAt: Date}>
+  spaces: Array<{space: SpaceDID, insertedAt: Date}>
 }
 ```
 
@@ -203,12 +203,34 @@ e.g. the spaces the CAR identified by a given CID has been stored in and the dat
 
 #### returns
 
-The `stores` property will be a list of spaces the specified shard was stored in, along with the date on
+The `spaces` property will be a list of spaces the specified shard was stored in, along with the date on
 which it was stored.
 
 ```typescript
 {
-  stores: Array<{space: SpaceDID, insertedAt: Date}>
+  spaces: Array<{space: SpaceDID, insertedAt: Date}>
+}
+```
+
+### `admin/block/inspect`
+
+Get information about a block by CID. This does not return the actual data identified by the CID, just metadata our
+system tracks. Specifically, when invoked this capability should return information about the CAR the block
+has been packed into in our system.
+
+### inputs
+
+`link: CID`
+
+### returns
+
+The `carpath` property will be a string representing the location the block's parent CAR is stored in our system.
+
+```typescript
+{
+  carpath: string,
+  length: number,
+  offset: number
 }
 ```
 
